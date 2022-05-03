@@ -1,58 +1,31 @@
+//question 1
 const itemsObject = [
   { quantity: 1, price: 200 },
   { quantity: 3, price: 350 },
   { quantity: 5, price: 400 },
 ];
+const double = obj => {
+  newObj = [];
+  newObj.quantity = obj.quantity * 2;
+  newObj.price = obj.price * 2;
+  return newObj;
+};
+let newObject = itemsObject.map(double);
+console.log(newObject);
 
-function double(itemObject) {
-  const newObject = itemObject;
-  for (let i = 0; i < itemObject.length; i++) {
-    newObject[i].quantity = newObject[i].quantity * 2;
-    newObject[i].price = newObject[i].price * 2;
-  }
-  console.log(newObject);
+//question 2
+function filt(obj) {
+  return (obj.quantity > 2) & (obj.price > 300);
 }
-double(itemsObject);
+let newObject1 = itemsObject.filter(filt);
+console.log(newObject1);
 
-const itemsObject1 = [
-  { quantity: 1, price: 200 },
-  { quantity: 3, price: 350 },
-  { quantity: 5, price: 400 },
-];
-function filter(itemObject) {
-  //newObject = [];
-  const newObject = new Array();
-  for (let i = 0; i < itemObject.length; i++) {
-    if (itemObject[i].quantity > 2 && itemObject[i].price > 300) {
-      newObject.push(itemObject[i]);
-    }
-  }
-  console.log(newObject);
-}
-filter(itemsObject1);
+//question3
+let total = itemsObject.reduce(function (prevValue, currValue) {
+  return prevValue + currValue.price * currValue.quantity;
+}, 0);
+console.log(total);
 
-function calculateTotal(itemObject) {
-  let totalValue = 0;
-  for (let i = 0; i < itemObject.length; i++) {
-    totalValue = totalValue + itemObject[i].quantity * itemObject[i].price;
-  }
-  console.log(totalValue);
-}
-calculateTotal(itemsObject);
-
+//question4
 const string = ' Perhaps The Easiest-to-understand   Case   For Reduce Is   To Return The Sum Of  All The Elements In  An Array  ';
-function clearString(oldString) {
-  let arrayTmp = oldString.trim().split(/\s+/);
-  for (let i = 0; i < arrayTmp.length; i++) {
-    let stringTmp = '';
-    for (let j = 0; j < arrayTmp[i].length; j++) {
-      if (/[a-zA-Z]/.test(arrayTmp[i][j])) {
-        stringTmp = stringTmp + arrayTmp[i][j].toLowerCase();
-      }
-    }
-    arrayTmp[i] = stringTmp;
-  }
-  let newString = arrayTmp.join('');
-  console.log(newString);
-}
-clearString(string);
+console.log(string.trim().split(/[ -]+/).join(' ').toLowerCase());
