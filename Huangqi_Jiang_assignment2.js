@@ -5,15 +5,20 @@ const itemsObject = [
 ];
 
 function double(itemObject) {
-  const newObject = new Array();
+  const newObject = itemObject;
   for (let i = 0; i < itemObject.length; i++) {
-    newObject.push(itemObject[i]);
+    newObject[i].quantity = newObject[i].quantity * 2;
+    newObject[i].price = newObject[i].price * 2;
   }
   console.log(newObject);
 }
-
 double(itemsObject);
 
+const itemsObject1 = [
+  { quantity: 1, price: 200 },
+  { quantity: 3, price: 350 },
+  { quantity: 5, price: 400 },
+];
 function filter(itemObject) {
   //newObject = [];
   const newObject = new Array();
@@ -24,7 +29,7 @@ function filter(itemObject) {
   }
   console.log(newObject);
 }
-filter(itemsObject);
+filter(itemsObject1);
 
 function calculateTotal(itemObject) {
   let totalValue = 0;
