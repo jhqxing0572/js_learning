@@ -1,0 +1,27 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+#myHeader {
+  background-color: darkgrey;
+}
+
+.input-contain {
+  position: relative;
+}
+
+input {
+  height: 1rem;
+  width: 10rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  margin: 20px;
+}
+
+#city {
+  background-color: darkgrey;
+}

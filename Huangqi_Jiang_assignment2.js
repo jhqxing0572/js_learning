@@ -4,18 +4,15 @@ const itemsObject = [
   { quantity: 3, price: 350 },
   { quantity: 5, price: 400 },
 ];
-const double = obj => {
-  newObj = [];
-  newObj.quantity = obj.quantity * 2;
-  newObj.price = obj.price * 2;
-  return newObj;
+const double = ({ quantity, price }) => {
+  return { quantity: quantity * 2, price: price * 2 };
 };
 let newObject = itemsObject.map(double);
 console.log(newObject);
 
 //question 2
 function filt(obj) {
-  return (obj.quantity > 2) & (obj.price > 300);
+  return obj.quantity > 2 && obj.price > 300;
 }
 let newObject1 = itemsObject.filter(filt);
 console.log(newObject1);
