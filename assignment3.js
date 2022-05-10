@@ -14,33 +14,33 @@ function generate_table() {
   let tblBody = document.createElement('tbody');
   let row = document.createElement('tr');
   row.id = 'myHeader';
-  for (let i = 0; i < tableInfo.tableHeader.length; i++) {
-    let cell = document.createElement('th');
-    let cellText = document.createTextNode(tableInfo.tableHeader[i]);
-    cell.appendChild(cellText);
-    row.appendChild(cell);
-  }
-  tblBody.appendChild(row);
 
-  for (let i = 0; i < tableInfo.tableContent.length; i++) {
+  tableInfo.tableHeader.map(ele => {
+    let cell = document.createElement('th');
+    cell.appendChild(document.createTextNode(ele));
+    row.appendChild(cell);
+  });
+
+  tblBody.appendChild(row);
+  tableInfo.tableContent.map(ele => {
     let row = document.createElement('tr');
     for (let j = 0; j < tableInfo.tableHeader.length; j++) {
       let cell = document.createElement('td');
       if (j == 0) {
-        cell.appendChild(document.createTextNode(tableInfo.tableContent[i]['Student Name']));
+        cell.appendChild(document.createTextNode(ele['Student Name']));
       } else if (j == 1) {
-        cell.appendChild(document.createTextNode(tableInfo.tableContent[i].Age));
+        cell.appendChild(document.createTextNode(ele.Age));
       } else if (j == 2) {
-        cell.appendChild(document.createTextNode(tableInfo.tableContent[i].Phone));
+        cell.appendChild(document.createTextNode(ele.Phone));
       } else if (j == 3) {
-        cell.appendChild(document.createTextNode(tableInfo.tableContent[i].Address));
+        cell.appendChild(document.createTextNode(ele.Address));
       }
 
       row.appendChild(cell);
     }
-
     tblBody.appendChild(row);
-  }
+  });
+
   tbl.appendChild(tblBody);
   body.appendChild(tbl);
   tbl.setAttribute('border', '2');
@@ -51,11 +51,11 @@ const list = ['HTML', 'JavaScript', 'CSS', 'React', 'Redux', 'Java'];
 function generate_ordered_list() {
   let body = document.getElementsByTagName('body')[0];
   let ordered_list = document.createElement('ol');
-  for (let i = 0; i < list.length; i++) {
+  list.map(ele => {
     let li = document.createElement('li');
-    li.innerHTML = list[i];
+    li.innerHTML = ele;
     ordered_list.appendChild(li);
-  }
+  });
   body.appendChild(ordered_list);
 }
 generate_ordered_list();
@@ -63,11 +63,11 @@ generate_ordered_list();
 function generate_unordered_list() {
   let body = document.getElementsByTagName('body')[0];
   let unordered_list = document.createElement('ul');
-  for (let i = 0; i < list.length; i++) {
+  list.map(ele => {
     let li = document.createElement('li');
-    li.innerHTML = list[i];
+    li.innerHTML = ele;
     unordered_list.appendChild(li);
-  }
+  });
   body.appendChild(unordered_list);
 }
 generate_unordered_list();
@@ -84,12 +84,12 @@ function generate_dropdown() {
   let body = document.getElementsByTagName('body')[0];
   let select = document.createElement('select');
   select.id = 'city';
-  for (let i = 0; i < dropDownList.length; i++) {
+  dropDownList.map(ele => {
     let option = document.createElement('option');
-    option.value = dropDownList[i].value;
-    option.innerHTML = dropDownList[i].content;
+    option.value = ele.value;
+    option.innerHTML = ele.content;
     select.appendChild(option);
-  }
+  });
   body.appendChild(select);
 }
 generate_dropdown();
