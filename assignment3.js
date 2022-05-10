@@ -24,6 +24,21 @@ function generate_table() {
   tblBody.appendChild(row);
   tableInfo.tableContent.map(ele => {
     let row = document.createElement('tr');
+
+    let cell_name = document.createElement('td');
+    cell_name.appendChild(document.createTextNode(ele['Student Name']));
+    row.appendChild(cell_name);
+    let cell_age = document.createElement('td');
+    cell_age.appendChild(document.createTextNode(ele.Age));
+    row.appendChild(cell_age);
+    let cell_phone = document.createElement('td');
+    cell_phone.appendChild(document.createTextNode(ele.Phone));
+    row.appendChild(cell_phone);
+    let cell_address = document.createElement('td');
+    cell_address.appendChild(document.createTextNode(ele.Address));
+    row.appendChild(cell_address);
+
+    /*
     for (let j = 0; j < tableInfo.tableHeader.length; j++) {
       let cell = document.createElement('td');
       if (j == 0) {
@@ -38,6 +53,7 @@ function generate_table() {
 
       row.appendChild(cell);
     }
+    */
     tblBody.appendChild(row);
   });
 
