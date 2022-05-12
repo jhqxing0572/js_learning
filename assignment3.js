@@ -17,48 +17,24 @@ function generate_table() {
 
   tableInfo.tableHeader.map(ele => {
     let cell = document.createElement('th');
-    cell.appendChild(document.createTextNode(ele));
-    row.appendChild(cell);
+    cell.append(document.createTextNode(ele));
+    row.append(cell);
   });
 
-  tblBody.appendChild(row);
+  tblBody.append(row);
+
   tableInfo.tableContent.map(ele => {
     let row = document.createElement('tr');
-
-    let cell_name = document.createElement('td');
-    cell_name.appendChild(document.createTextNode(ele['Student Name']));
-    row.appendChild(cell_name);
-    let cell_age = document.createElement('td');
-    cell_age.appendChild(document.createTextNode(ele.Age));
-    row.appendChild(cell_age);
-    let cell_phone = document.createElement('td');
-    cell_phone.appendChild(document.createTextNode(ele.Phone));
-    row.appendChild(cell_phone);
-    let cell_address = document.createElement('td');
-    cell_address.appendChild(document.createTextNode(ele.Address));
-    row.appendChild(cell_address);
-
-    /*
-    for (let j = 0; j < tableInfo.tableHeader.length; j++) {
+    tableInfo.tableHeader.map(head => {
       let cell = document.createElement('td');
-      if (j == 0) {
-        cell.appendChild(document.createTextNode(ele['Student Name']));
-      } else if (j == 1) {
-        cell.appendChild(document.createTextNode(ele.Age));
-      } else if (j == 2) {
-        cell.appendChild(document.createTextNode(ele.Phone));
-      } else if (j == 3) {
-        cell.appendChild(document.createTextNode(ele.Address));
-      }
-
-      row.appendChild(cell);
-    }
-    */
+      cell.append(document.createTextNode(ele[head]));
+      row.append(cell);
+    });
     tblBody.appendChild(row);
   });
 
-  tbl.appendChild(tblBody);
-  body.appendChild(tbl);
+  tbl.append(tblBody);
+  body.append(tbl);
   tbl.setAttribute('border', '2');
 }
 generate_table();
@@ -70,9 +46,9 @@ function generate_ordered_list() {
   list.map(ele => {
     let li = document.createElement('li');
     li.innerHTML = ele;
-    ordered_list.appendChild(li);
+    ordered_list.append(li);
   });
-  body.appendChild(ordered_list);
+  body.append(ordered_list);
 }
 generate_ordered_list();
 
@@ -82,9 +58,9 @@ function generate_unordered_list() {
   list.map(ele => {
     let li = document.createElement('li');
     li.innerHTML = ele;
-    unordered_list.appendChild(li);
+    unordered_list.append(li);
   });
-  body.appendChild(unordered_list);
+  body.append(unordered_list);
 }
 generate_unordered_list();
 
@@ -103,9 +79,9 @@ function generate_dropdown() {
   dropDownList.map(ele => {
     let option = document.createElement('option');
     option.value = ele.value;
-    option.innerHTML = ele.content;
-    select.appendChild(option);
+    option.textContent = ele.content;
+    select.append(option);
   });
-  body.appendChild(select);
+  body.append(select);
 }
 generate_dropdown();
